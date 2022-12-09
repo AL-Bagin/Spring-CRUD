@@ -11,8 +11,12 @@ import web.service.UserService;
 @RequestMapping("/users")
 public class UsersController {
 
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UsersController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping()
     public String index(Model model) {
